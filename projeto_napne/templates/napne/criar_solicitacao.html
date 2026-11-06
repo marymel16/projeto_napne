@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Pedir atendimento{% endblock %}
+
+{% block content %}
+<div class="container mt-4" style="max-width: 760px;">
+  <h1 class="h3 mb-1"><i class="bi bi-clipboard2-pulse"></i> Pedir atendimento ao NAPNE</h1>
+  <p class="text-secondary">Campos sem "(opcional)" são obrigatórios.</p>
+
+  <form method="post" class="cartao-form" novalidate>
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+      <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    <div class="row g-3">
+      {% for campo in form %}
+        {% if campo.name == 'aceita_termos' %}
+          <div class="col-12">
+            <div class="form-check">
+              {{ campo }}
+              <label class="form-check-label" for="{{ campo.id_for_label }}">{{ campo.label }}</label>
+              {% for erro in campo.errors %}<div class="text-danger small">{{ erro }}</div>{% endfor %}
+            </div>
+          </div>
+        {% else %}
+          <div class="{% if campo.name == 'descricao' or campo.name == 'assunto' or campo.name == 'nome_completo' or campo.name == 'categoria' %}col-12{% else %}col-md-6{% endif %}">
+            <label class="form-label" for="{{ campo.id_for_label }}">{{ campo.label }}</label>
+            {{ campo }}
+            {% for erro in campo.errors %}<div class="text-danger small mt-1"><i class="bi bi-exclamation-circle"></i> {{ erro }}</div>{% endfor %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="d-flex gap-2 mt-4">
+      <button type="submit" class="btn btn-napne"><i class="bi bi-send"></i> Enviar pedido</button>
+      <a href="{% url 'index' %}" class="btn btn-outline-secondary">Cancelar</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

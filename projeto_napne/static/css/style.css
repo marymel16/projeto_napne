@@ -1,0 +1,55 @@
+:root {
+  --verde: #1d5c3a;
+  --verde-escuro: #123d26;
+  --verde-claro: #e6f0ea;
+  --amarelo: #f4c542;
+  --papel: #f7f8f5;
+  --tinta: #1c2420;
+  --bs-body-font-family: 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --bs-body-color: var(--tinta);
+  --bs-link-color: var(--verde);
+  --bs-link-hover-color: var(--verde-escuro);
+}
+
+body { background: var(--papel); font-size: 1.05rem; line-height: 1.6; }
+
+:focus-visible { outline: 3px solid var(--amarelo); outline-offset: 2px; }
+
+.topo { background: var(--verde); }
+.topo .navbar-brand, .topo .nav-link { color: #fff; }
+.topo .nav-link:hover { color: var(--amarelo); }
+.topo .navbar-toggler { border-color: rgba(255,255,255,.6); }
+.topo .navbar-toggler-icon { filter: invert(1); }
+
+.btn-napne { background: var(--verde); color: #fff; border: 0; padding: .7rem 1.4rem; font-weight: 700; }
+.btn-napne:hover { background: var(--verde-escuro); color: #fff; }
+.btn-amarelo { background: var(--amarelo); color: var(--tinta); font-weight: 700; border: 0; padding: .8rem 1.6rem; }
+.btn-amarelo:hover { background: #e6b52f; color: var(--tinta); }
+
+.chamada { background: var(--verde); color: #fff; padding: 4.5rem 0 4rem; }
+.chamada h1 { font-weight: 700; font-size: clamp(2rem, 5vw, 3.2rem); max-width: 18ch; line-height: 1.15; }
+.chamada p { max-width: 52ch; font-size: 1.2rem; color: #dcebe2; }
+
+.passos { list-style: none; padding: 0; margin: 0; counter-reset: passo; }
+.passos li { counter-increment: passo; padding-left: 3rem; position: relative; margin-bottom: 1.2rem; }
+.passos li::before {
+  content: counter(passo); position: absolute; left: 0; top: 0;
+  width: 2.2rem; height: 2.2rem; border-radius: 50%;
+  background: var(--verde-claro); color: var(--verde); font-weight: 700;
+  display: grid; place-items: center;
+}
+
+.cartao-form { background: #fff; border: 1px solid #d9dfd9; border-radius: 12px; padding: 2rem; }
+.form-label { font-weight: 700; }
+.form-control, .form-select { border-color: #8a958e; padding: .6rem .8rem; }
+.helptext { color: #5a655e; font-size: .9rem; }
+
+.resumo { border-radius: 10px; padding: 1rem 1.25rem; color: #fff; }
+.resumo strong { font-size: 2rem; display: block; line-height: 1.1; }
+.resumo-total { background: #2d5fd1; }
+.resumo-pendente { background: #f4c542; color: var(--tinta); }
+.resumo-andamento { background: #0f7f99; }
+.resumo-concluida { background: var(--verde); }
+
+.rodape { background: #1c2420; color: #c9d1cc; }
+.rodape a { color: #fff; }

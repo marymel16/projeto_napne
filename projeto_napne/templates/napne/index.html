@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Início{% endblock %}
+
+{% block content %}
+<section class="chamada">
+  <div class="container">
+    <h1>Precisa de apoio para estudar no IFRN?</h1>
+    <p class="mb-4">O NAPNE ajuda estudantes com deficiência, transtornos do neurodesenvolvimento e altas habilidades a ter as mesmas condições de aprender. Conte o que você precisa e a equipe entra em contato.</p>
+    <a class="btn btn-amarelo btn-lg" href="{% url 'criar_solicitacao' %}"><i class="bi bi-pencil-square"></i> Pedir atendimento</a>
+  </div>
+</section>
+
+<section class="container mt-5">
+  <div class="row g-5">
+    <div class="col-md-6">
+      <h2 class="h4 mb-3">Como funciona</h2>
+      <ol class="passos">
+        <li><strong>Preencha o formulário.</strong> Use seu e-mail institucional e informe sua matrícula.</li>
+        <li><strong>Descreva sua necessidade.</strong> Escolha o tipo de apoio e explique com suas palavras.</li>
+        <li><strong>Aguarde o contato.</strong> A equipe analisa o pedido e responde pelo e-mail ou telefone informado.</li>
+      </ol>
+    </div>
+    <div class="col-md-6">
+      <h2 class="h4 mb-3">Seus dados</h2>
+      <p>As informações enviadas ficam disponíveis só para a equipe do NAPNE e servem para organizar o seu atendimento. Não há lista pública de pedidos.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

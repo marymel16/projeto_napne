@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Entrar{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 420px;">
+  <h1 class="h4 mb-3"><i class="bi bi-person-lock"></i> Acesso da equipe NAPNE</h1>
+  <form method="post" class="cartao-form" novalidate>
+    {% csrf_token %}
+    {% if form.errors %}
+      <div class="alert alert-danger">Usuário ou senha incorretos. Confira e tente de novo.</div>
+    {% endif %}
+    <label class="form-label" for="id_username">Usuário</label>
+    <input type="text" name="username" id="id_username" class="form-control mb-3" autocomplete="username" autofocus required>
+    <label class="form-label" for="id_password">Senha</label>
+    <input type="password" name="password" id="id_password" class="form-control mb-4" autocomplete="current-password" required>
+    <input type="hidden" name="next" value="{{ next }}">
+    <button type="submit" class="btn btn-napne w-100">Entrar</button>
+  </form>
+</div>
+{% endblock %}

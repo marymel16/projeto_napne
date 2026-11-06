@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Pedido enviado{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center" style="max-width: 560px;">
+  <i class="bi bi-check-circle-fill text-success" style="font-size: 3.5rem;"></i>
+  <h1 class="h3 mt-3">Pedido enviado</h1>
+  <p>A equipe do NAPNE recebeu suas informações e vai entrar em contato pelo e-mail ou telefone que você informou.</p>
+  <a class="btn btn-napne" href="{% url 'index' %}">Voltar ao início</a>
+</div>
+{% endblock %}
